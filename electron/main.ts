@@ -29,6 +29,7 @@ function createWindow() {
 		// 	preload: path.join(__dirname, 'preload.js'),
 		// },
 	});
+	// comment line below to remove dev tools
 	win.webContents.openDevTools();
 	// Test active push message to Renderer-process.
 	win.webContents.on('did-finish-load', () => {
