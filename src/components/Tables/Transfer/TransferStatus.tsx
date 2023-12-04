@@ -1,7 +1,7 @@
 import React from 'react';
 import { TransferProps, columns } from './Columns';
 import transferData from './transferData.json';
-import { DataTable } from './DataTable';
+import { DataTable } from '../DataTable';
 
 const transferStatusData: TransferProps[] = transferData;
 

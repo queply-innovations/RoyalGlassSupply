@@ -6,7 +6,7 @@ interface SearchbarProps {
 }
 export const Searchbar: React.FC<SearchbarProps> = ({ ButtonIcon }) => {
 	return (
-		<div className="searchbar w-2/5">
+		<div className="searchbar flex w-2/5">
 			<div
 				className={`searchbar ${
 					ButtonIcon

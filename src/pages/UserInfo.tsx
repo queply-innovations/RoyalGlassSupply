@@ -4,6 +4,7 @@ import UserLayout from '@/layouts/User';
 import Searchbar from '@/components/Navbar/Searchbar';
 import { Button } from '@/components/Button/Button';
 import Modal from '@/components/Modal/Modal';
+import UserInfoTable from '@/components/Tables/UserInfo/UserInfoTable';
 
 const UserInfo = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,7 +22,7 @@ const UserInfo = () => {
 				<h1 className="page-title text-3xl font-bold text-primary-dark-gray">
 					User Information
 				</h1>
-				<div className="user-info-container flex w-full flex-col overflow-y-auto rounded-lg border border-black/10 bg-white p-5">
+				<div className="user-info-container flex h-full flex-col gap-3 rounded-lg border border-black/10 bg-white p-5">
 					<div className="user-info-header flex gap-x-10">
 						<Searchbar ButtonIcon={false} />
 						<div className="user-info-button flex gap-x-5 p-2">
@@ -31,6 +32,11 @@ const UserInfo = () => {
 								textColor="white"
 								onClick={openModal}
 							/>
+							<Button
+								title="REMOVE USER"
+								color="red"
+								textColor="white"
+							/>
 							<Modal
 								title={'ADD USER'}
 								isOpen={isModalOpen}
@@ -39,6 +45,9 @@ const UserInfo = () => {
 								<div className="AddUserModalContent"></div>
 							</Modal>
 						</div>
+					</div>
+					<div className="user-info-table-container h-fit max-h-[75vh] overflow-y-auto">
+						<UserInfoTable />
 					</div>
 				</div>
 			</UserLayout>

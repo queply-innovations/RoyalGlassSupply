@@ -5,7 +5,9 @@ interface UserProps {
 }
 
 const UserLayout: React.FC<UserProps> = ({ children }) => {
-	return <div className="user-layout flex flex-col gap-y-4">{children}</div>;
+	return (
+		<div className="user-layout flex h-full flex-col gap-y-4">{children}</div>
+	);
 };
 
 export default UserLayout;
