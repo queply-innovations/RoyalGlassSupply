@@ -16,30 +16,31 @@ const UserInfo = () => {
 		setIsModalOpen(false);
 	};
 	return (
-		<MainLayout pageTitle="User Information">
-			<div className="user-info-container flex h-full flex-col gap-3 rounded-lg border border-black/10 bg-white p-5">
-				<div className="user-info-header flex gap-x-10">
-					<Searchbar ButtonIcon={false} />
-					<div className="user-info-button flex gap-x-5 p-2">
-						<Button
-							title="ADD USER"
-							color="green"
-							textColor="white"
-							onClick={openModal}
-						/>
-						<Button title="REMOVE USER" color="red" textColor="white" />
-						<Modal
-							title={'ADD USER'}
-							isOpen={isModalOpen}
-							onClose={closeModal}
-						>
-							<div className="AddUserModalContent"></div>
-						</Modal>
-					</div>
+		<MainLayout
+			pageTitle="User Information"
+			cn="rounded-lg border border-black/10 bg-white p-5"
+		>
+			<div className="user-info-header flex gap-x-10">
+				<Searchbar ButtonIcon={false} />
+				<div className="user-info-button flex gap-x-5 p-2">
+					<Button
+						title="ADD USER"
+						color="green"
+						textColor="white"
+						onClick={openModal}
+					/>
+					<Button title="REMOVE USER" color="red" textColor="white" />
+					<Modal
+						title={'ADD USER'}
+						isOpen={isModalOpen}
+						onClose={closeModal}
+					>
+						<div className="AddUserModalContent"></div>
+					</Modal>
 				</div>
-				<div className="user-info-table-container h-fit max-h-[75vh] overflow-y-auto">
-					<UserInfoTable />
-				</div>
+			</div>
+			<div className="user-info-table-container h-fit max-h-[75vh] overflow-y-auto">
+				<UserInfoTable />
 			</div>
 		</MainLayout>
 	);
