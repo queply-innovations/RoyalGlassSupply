@@ -19,6 +19,7 @@ module.exports = {
 		},
 		fontFamily: {
 			Inter: ['Inter', 'sans-serif'],
+			Lato: ['Lato', 'sans-serif'],
 		},
 		extend: {
 			colors: {
