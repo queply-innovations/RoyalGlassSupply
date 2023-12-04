@@ -20,12 +20,15 @@ export const Sidebar = () => {
 			<ul className="sidebar-menu flex h-full w-full flex-col items-start justify-evenly">
 				{SidebarData.map((item, index) => (
 					<li
-						className="sidebar-row flex w-full cursor-pointer items-center gap-x-4 px-4 py-2 hover:bg-gray-200"
+						className="w-full cursor-pointer px-4 py-2 hover:bg-gray-200"
 						key={index}
 						onClick={() => item.subMenu && toggleSubMenu(item.title)}
 					>
 						{item.link ? (
-							<Link to={item.link}>
+							<Link
+								to={item.link}
+								className="flex w-full cursor-pointer flex-row "
+							>
 								<div className="sidebar-row-container flex cursor-pointer items-center gap-x-4 p-2 px-5 text-sm">
 									{item.icon}
 									<span className="sidebar-row-title">
