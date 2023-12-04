@@ -20,7 +20,7 @@ export const Sidebar = () => {
 			<ul className="sidebar-menu flex h-full w-full flex-col items-start justify-evenly">
 				{SidebarData.map((item, index) => (
 					<li
-						className="w-full cursor-pointer px-4 py-2 hover:bg-gray-200"
+						className="sidebar-menu-row relative w-full cursor-pointer px-4 py-2 hover:bg-gray-200"
 						key={index}
 						onClick={() => item.subMenu && toggleSubMenu(item.title)}
 					>
@@ -45,7 +45,7 @@ export const Sidebar = () => {
 							</div>
 						)}
 						{item.subMenu && activeSubMenu === item.title && (
-							<ul className="submenu-active absolute left-[15.25rem] z-10 rounded rounded-bl-none rounded-br rounded-tl-none rounded-tr border-b border-r border-t bg-primary-white font-semibold shadow-[2px_0_10px_0] shadow-black/10">
+							<ul className="submenu-active absolute left-full top-0  z-10 w-3/4 rounded rounded-bl-none rounded-br rounded-tl-none rounded-tr border-b border-r border-t bg-primary-white font-semibold shadow-[2px_0_10px_0] shadow-black/10">
 								{item.subMenu.map((subItem, subIndex) => (
 									<li key={subIndex} className="submenu-row">
 										<Link
