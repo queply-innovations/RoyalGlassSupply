@@ -26,7 +26,7 @@ export const GrossAndNetProfit: React.FC = () => {
 	return (
 		<>
 			<div
-				className="gross-and-netprofit-chart flex h-full min-h-[370px] w-[70%] flex-col rounded-md border border-black/10 bg-white p-5"
+				className="gross-and-netprofit-chart flex h-full min-h-[370px] w-full max-w-[70%] flex-col rounded-md border border-black/10 bg-white p-5"
 				ref={ref}
 			>
 				<h2 className="gross-and-netprofit-title text-base font-bold uppercase text-black">

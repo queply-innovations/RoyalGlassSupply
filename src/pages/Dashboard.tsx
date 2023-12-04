@@ -3,6 +3,10 @@ import DashboardLayout from '@/layouts/Dashboard';
 import MainLayout from '@/layouts/MainLayout';
 import InfoBox from '@/components/InfoBox/Infobox';
 import GrossAndNetProfit from '@/components/Chart/GrossAndNetProfit';
+// import TransferStatusTable from '@/components/Tables/Transfer/TransferStatus';
+import TransferStatus from '@/components/Tables/Transfer/transfer';
+import InventoryTable from '@/components/Tables/Inventory/inventory';
+import TopSellingProducts from '@/components/Tables/TopSellingProducts/topSellingProducts';
 const Dashboard = () => {
 	return (
 		<MainLayout>
@@ -40,8 +44,14 @@ const Dashboard = () => {
 						amountTextColor="white"
 					/>
 				</div>
-				<div className="row-container flex flex-row justify-between gap-8">
+				<div className="row-container flex flex-row gap-8">
 					<GrossAndNetProfit />
+					<TransferStatus />
+					{/* <TransferStatusTable /> */}
+				</div>
+				<div className="row-container flex flex-row gap-8">
+					<InventoryTable />
+					<TopSellingProducts />
 				</div>
 			</DashboardLayout>
 		</MainLayout>

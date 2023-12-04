@@ -1,12 +1,12 @@
 import { ColumnDef } from '@tanstack/react-table';
 
-export type Transfer = {
-	id: string;
-	status: 'pending' | 'processing' | 'success' | 'failed';
-	action?: string;
+export type TransferProps = {
+	id: number;
+	status: string;
+	action?: null;
 };
 
-export const columns: ColumnDef<Transfer>[] = [
+export const columns: ColumnDef<TransferProps>[] = [
 	{
 		accessorKey: 'id',
 		header: 'Transfer ID',
