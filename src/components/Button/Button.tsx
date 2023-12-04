@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import { BiSolidPrinter } from 'react-icons/bi';
 
 interface ButtonProps {
+	cn?: string;
 	title?: string;
 	onClick?: () => void;
 	color?: 'default' | 'green' | 'red' | 'yellow';
@@ -11,6 +12,7 @@ interface ButtonProps {
 }
 
 export const Button: React.FC<ButtonProps> = ({
+	cn,
 	title,
 	onClick,
 	color = 'default',
@@ -59,7 +61,7 @@ export const Button: React.FC<ButtonProps> = ({
 
 	return (
 		<button
-			className={buttonClassName}
+			className={buttonClassName + ' ' + cn}
 			onClick={() => {
 				if (print === true) {
 					handlePrintClick();
