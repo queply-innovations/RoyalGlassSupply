@@ -6,7 +6,7 @@ interface SearchbarProps {
 }
 export const Searchbar: React.FC<SearchbarProps> = ({ ButtonIcon }) => {
 	return (
-		<div className="searchbar flex w-2/5">
+		<div className="searchbar w-2/5 self-center">
 			<div
 				className={`searchbar ${
 					ButtonIcon
@@ -28,7 +28,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({ ButtonIcon }) => {
 							className="searchbar-input ml-5 focus-visible:outline-none"
 							placeholder="Search"
 						/>
-						<HiOutlineMagnifyingGlass className="searchbar-icon rounded-br-full rounded-tr-full bg-gray-50/50 p-2 text-4xl" />
+						<HiOutlineMagnifyingGlass className="searchbar-icon rounded-br-full rounded-tr-full bg-primary-gray/50 p-2 text-4xl" />
 					</>
 				)}
 			</div>
