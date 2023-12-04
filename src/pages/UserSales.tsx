@@ -1,15 +1,10 @@
 import React from 'react';
 import MainLayout from '@/layouts/MainLayout';
-import UserLayout from '@/layouts/User';
 
 const UserSales = () => {
 	return (
-		<MainLayout>
-			<UserLayout>
-				<h1 className="page-title text-3xl font-bold text-primary-dark-gray">
-					User Sales
-				</h1>
-			</UserLayout>
+		<MainLayout pageTitle="User Sales">
+			<div className="user-sale-container flex h-full flex-col gap-3 rounded-lg border border-black/10 bg-white p-5"></div>
 		</MainLayout>
 	);
 };
