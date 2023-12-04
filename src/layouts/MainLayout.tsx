@@ -9,7 +9,7 @@ interface MainLayoutProps {
 }
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children, pageTitle, cn }) => {
-	const toTitleSelector = pageTitle?.toLowerCase().replace(' ', '-');
+	const toTitleSelector = `${pageTitle?.toLowerCase().replace(' ', '-')}-`;
 	return (
 		<div className="main-layout flex w-screen flex-row bg-primary-background">
 			<Sidebar />
@@ -23,7 +23,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, pageTitle, cn }) => {
 							{pageTitle}
 						</h1>
 						<div
-							className={`${toTitleSelector}-container flex h-full flex-col gap-3 ${cn}`}
+							className={`${
+								toTitleSelector || ''
+							}container flex h-full flex-col gap-3 ${cn || ''}`}
 						>
 							{children}
 						</div>
