@@ -2,8 +2,10 @@ import React from 'react';
 
 export const InventoryTable: React.FC = () => {
 	return (
-		<div className="flex w-[70%] flex-1 flex-col items-center gap-y-5 rounded-md border-black/10 bg-white p-4 ">
-			<h2 className="uppercase text-black">Inventory Level</h2>
+		<div className="flex w-full max-w-[70%] flex-col items-start gap-y-5 rounded-md border-black/10 bg-white p-4 ">
+			<h2 className="text-base font-bold uppercase text-black ">
+				Inventory Level
+			</h2>
 			<div className="h-full w-full rounded-md border border-solid">
 				<table className="w-full rounded-md">
 					<tbody>

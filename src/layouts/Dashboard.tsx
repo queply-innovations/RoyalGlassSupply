@@ -6,7 +6,9 @@ interface DashboardProps {
 
 const DashboardLayout: React.FC<DashboardProps> = ({ children }) => {
 	return (
-		<div className="dashboard-layout flex flex-col gap-y-4">{children}</div>
+		<div className="dashboard-layout flex h-full flex-col gap-y-4">
+			{children}
+		</div>
 	);
 };
 

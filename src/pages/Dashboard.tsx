@@ -44,14 +44,16 @@ const Dashboard = () => {
 						amountTextColor="white"
 					/>
 				</div>
-				<div className="row-container flex flex-row gap-8">
-					<GrossAndNetProfit />
-					<TransferStatus />
-					{/* <TransferStatusTable /> */}
-				</div>
-				<div className="row-container flex flex-row gap-8">
-					<InventoryTable />
-					<TopSellingProducts />
+				<div className="row-container flex h-full flex-col gap-6 ">
+					<div className="row-container flex flex-row gap-8">
+						<GrossAndNetProfit />
+						<TransferStatus />
+						{/* <TransferStatusTable /> */}
+					</div>
+					<div className="row-container flex h-full flex-row gap-8">
+						<InventoryTable />
+						<TopSellingProducts />
+					</div>
 				</div>
 			</DashboardLayout>
 		</MainLayout>

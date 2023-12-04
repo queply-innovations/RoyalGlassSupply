@@ -13,6 +13,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 			<div className="main-layout-content flex h-screen w-full flex-col gap-y-3 p-5">
 				<Navbar />
 				<div className="main-layout-children flex-1">{children}</div>
+				<div className="main-layout-footer flex items-end justify-end">
+					<p className="text-xs text-primary-dark-gray">You are online</p>
+				</div>
 			</div>
 		</div>
 	);
