@@ -44,11 +44,13 @@ export const Sidebar = () => {
 						{item.subMenu && activeSubMenu === item.title && (
 							<ul className="submenu-active absolute left-[15.25rem] z-10 rounded rounded-bl-none rounded-br rounded-tl-none rounded-tr border-b border-r border-t bg-primary-white font-semibold shadow-[2px_0_10px_0] shadow-black/10">
 								{item.subMenu.map((subItem, subIndex) => (
-									<li
-										key={subIndex}
-										className="submenu-link flex cursor-pointer items-center gap-x-4 p-2 px-5 text-sm hover:bg-gray-200"
-									>
-										<Link to={subItem.link}>{subItem.title}</Link>
+									<li key={subIndex} className="submenu-row">
+										<Link
+											className="submenu-link flex cursor-pointer items-center gap-x-4 p-2 px-5 text-sm hover:bg-gray-200"
+											to={subItem.link}
+										>
+											{subItem.title}
+										</Link>
 									</li>
 								))}
 							</ul>

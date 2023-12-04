@@ -24,11 +24,11 @@ export const SidebarData = [
 		subMenu: [
 			{
 				title: 'User Information',
-				link: '/userinfo',
+				link: '/user/info',
 			},
 			{
 				title: 'User Sales',
-				link: '/usersales',
+				link: '/user/sales',
 			},
 		],
 	},
