@@ -4,12 +4,14 @@ interface SelectBoxProps {
 	options: string[];
 	hasFrequency: boolean;
 	frequencyOptions?: string[];
+	cn?: string;
 }
 
 const SelectBox: React.FC<SelectBoxProps> = ({
 	options,
 	hasFrequency,
 	frequencyOptions,
+	cn,
 }) => {
 	const [selectedValue, setSelectedValue] = useState<string | undefined>(
 		undefined,
@@ -37,7 +39,7 @@ const SelectBox: React.FC<SelectBoxProps> = ({
 		<>
 			<div className="selectbox-container ">
 				<select
-					className="flex min-w-[10rem] rounded border border-black/10 bg-white p-2 font-semibold"
+					className={`${cn}`}
 					id="selectBox"
 					value={selectedValue}
 					onChange={handleOptionChange}
@@ -47,7 +49,7 @@ const SelectBox: React.FC<SelectBoxProps> = ({
 					</option>
 					{options.map((option, index) => (
 						<option
-							className="cursor-pointer rounded-none border-none hover:bg-primary-red"
+							className="flex cursor-pointer rounded-none border-none hover:bg-primary-red "
 							key={index}
 							value={option}
 						>

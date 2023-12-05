@@ -4,13 +4,20 @@ import { IoCloseSharp } from 'react-icons/io5';
 import { Button } from '@/components/Button/Button';
 
 interface ModalProps {
+	cn?: string;
 	title?: string;
 	isOpen: boolean;
 	onClose: () => void;
 	children: ReactElement;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
+const Modal: React.FC<ModalProps> = ({
+	isOpen,
+	onClose,
+	title,
+	children,
+	cn,
+}) => {
 	const [inputValue, setInputValue] = useState('');
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,11 +49,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
 						<h2 className="modal-title flex w-4/5 justify-center text-2xl font-bold">
 							{title}
 						</h2>
-						<div className="ModalButtonContainer">
+						<div className="modal-close-button-container absolute right-0 top-5 flex ">
 							<Button icon={<IoCloseSharp />} onClick={onClose} />
 						</div>
 					</div>
-					<div className="modal-body space-y-2">{children}</div>
+					<div className={`"modal-body space-y-2" ${cn}`}>{children}</div>
 				</div>
 			</div>
 		</>
