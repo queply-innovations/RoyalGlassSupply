@@ -6,6 +6,7 @@ import UserSales from '@/pages/UserSales';
 import Transfer from '@/pages/Transfer';
 import Finance from '@/pages/Finance';
 import Page404 from '@/pages/Page404';
+import Inventory from '@/pages/Inventory';
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 				<Route path="/user/sales" element={<UserSales />}></Route>
 				<Route path="/transfer" element={<Transfer />}></Route>
 				<Route path="/finance" element={<Finance />}></Route>
+				<Route path="/inventory" element={<Inventory />}></Route>
 			</Routes>
 		</>
 	);
