@@ -96,7 +96,7 @@ const Inventory = () => {
 				</div>
 			</div>
 			<div className="inventory-table-container h-full flex-1 rounded border border-black/10">
-				{/* <InventoryTable /> */}
+				<InventoryTable />
 			</div>
 		</MainLayout>
 	);

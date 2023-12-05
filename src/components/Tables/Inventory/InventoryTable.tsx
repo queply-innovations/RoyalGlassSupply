@@ -33,7 +33,7 @@ const columns = [
 	}),
 	columnHelper.accessor('dimensions', {
 		id: 'dimensions',
-		cell: info => <i>{info.getValue()}</i>,
+		cell: info => <span>{info.getValue()}</span>,
 		header: () => <span>Dimensions</span>,
 		footer: info => info.column.id,
 	}),
@@ -45,7 +45,7 @@ const columns = [
 	}),
 	columnHelper.accessor(row => row.product_name, {
 		id: 'product_name',
-		cell: info => info.getValue(),
+		cell: info => <span className="uppercase">{info.getValue()}</span>,
 		header: ({ column }) => {
 			return (
 				<button
@@ -62,7 +62,7 @@ const columns = [
 	}),
 	columnHelper.accessor(row => row.serial, {
 		id: 'serial',
-		cell: info => info.getValue(),
+		cell: info => <span className="uppercase">{info.getValue()}</span>,
 		header: () => <span>Serial</span>,
 		footer: info => info.column.id,
 	}),
