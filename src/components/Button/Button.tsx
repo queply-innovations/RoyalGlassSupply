@@ -34,9 +34,7 @@ export const Button: React.FC<ButtonProps> = ({
 		white: 'text-white',
 	};
 
-	const textColorClassName = `ButtonTextColor ${
-		textColorClassNames[textColor] || ''
-	}`;
+	const textColorClassName = `${textColorClassNames[textColor] || ''}`;
 	const buttonClassName = `button flex gap-2 rounded-full px-3 py-1 flex-row items-center justify-center gap-x-2 ${
 		colorClassNames[color] || ''
 	}`;
