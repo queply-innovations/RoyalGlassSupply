@@ -14,6 +14,7 @@ const Finance = () => {
 				<Searchbar ButtonIcon={false} />
 				<div className="selectbox-container flex flex-row gap-2 rounded border border-black/10 bg-primary-white p-3 ">
 					<SelectBox
+						cn="flex min-w-[10rem] rounded border border-black/10 bg-white p-2 font-semibold"
 						options={financeOption}
 						hasFrequency={true}
 						frequencyOptions={financeFrequency}
