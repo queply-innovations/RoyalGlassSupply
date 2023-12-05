@@ -17,7 +17,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, pageTitle, cn }) => {
 				<Navbar />
 				<div className="main-layout-children flex-1">
 					<div
-						className={`${toTitleSelector}-layout flex h-full flex-col gap-y-4`}
+						className={`${toTitleSelector}layout flex h-full flex-col gap-y-4`}
 					>
 						<h1 className="page-title text-3xl font-bold capitalize text-primary-dark-gray">
 							{pageTitle}
