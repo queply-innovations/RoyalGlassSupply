@@ -24,7 +24,7 @@ export const Button: React.FC<ButtonProps> = ({
 		'default' | 'green' | 'red' | 'yellow',
 		string
 	> = {
-		default: 'Default',
+		default: 'default',
 		green: 'bg-primary-green hover:bg-primary-green/80',
 		red: 'bg-primary-red hover:bg-primary-red/80',
 		yellow: 'bg-primary-yellow hover:bg-primary-yellow/80',
@@ -35,7 +35,7 @@ export const Button: React.FC<ButtonProps> = ({
 	};
 
 	const textColorClassName = `${textColorClassNames[textColor] || ''}`;
-	const buttonClassName = `button flex gap-2 rounded-full px-3 py-1 flex-row items-center justify-center gap-x-2 ${
+	const buttonClassName = `button gap-2 rounded-full px-3 py-1 gap-x-2 ${
 		colorClassNames[color] || ''
 	}`;
 
