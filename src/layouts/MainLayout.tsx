@@ -11,7 +11,7 @@ interface MainLayoutProps {
 const MainLayout: React.FC<MainLayoutProps> = ({ children, pageTitle, cn }) => {
 	const toTitleSelector = `${pageTitle?.toLowerCase().replace(' ', '-')}-`;
 	return (
-		<div className="main-layout flex w-screen flex-row bg-primary-background">
+		<div className="main-layout flex max-h-screen w-screen flex-row bg-primary-background">
 			<Sidebar />
 			<div className="main-layout-content flex h-screen w-full flex-col gap-y-3 p-5">
 				<Navbar />
@@ -25,14 +25,14 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, pageTitle, cn }) => {
 						<div
 							className={`${
 								toTitleSelector || ''
-							}container flex h-full flex-col gap-3 ${cn || ''}`}
+							}container flex h-full flex-col ${cn || ''}`}
 						>
 							{children}
 						</div>
 					</div>
 				</div>
 				<div className="main-layout-footer flex items-end justify-end">
-					<p className="text-xs text-primary-dark-gray">You are online</p>
+					<p className="text-xs text-primary-dark-gray">You are STATUS</p>
 				</div>
 			</div>
 		</div>
