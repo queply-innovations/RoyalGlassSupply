@@ -51,18 +51,20 @@ const WarehouseTable: React.FC<WarehouseTableProps> = ({
 						<td className="border py-5 text-center font-Inter text-xs font-bold uppercase">
 							{warehouse.warehouseLocation}
 						</td>
-						<td className="flex flex-row justify-center gap-3 border py-5 text-center font-Inter text-xs font-bold uppercase">
-							<Button
-								title="Edit"
-								color="yellow"
-								onClick={() => onEdit(warehouse.warehouseID)}
-							/>
+						<td className="border py-5 text-center font-Inter text-xs font-bold uppercase">
+							<div className="flex flex-row justify-center gap-2">
+								<Button
+									title="Edit"
+									color="yellow"
+									onClick={() => onEdit(warehouse.warehouseID)}
+								/>
 
-							<Button
-								title="Delete"
-								color="red"
-								onClick={() => onDelete(warehouse.warehouseID)}
-							/>
+								<Button
+									title="Delete"
+									color="red"
+									onClick={() => onDelete(warehouse.warehouseID)}
+								/>
+							</div>
 						</td>
 					</tr>
 				))}
