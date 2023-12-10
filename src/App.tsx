@@ -8,7 +8,7 @@ import Finance from '@/pages/Finance';
 import Page404 from '@/pages/Page404';
 import Inventory from '@/pages/Inventory';
 import Warehouse from '@/pages/Warehouse';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 function App() {
 	const queryClient = new QueryClient();
