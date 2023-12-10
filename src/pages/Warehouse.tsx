@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import MainLayout from '@/layouts/MainLayout';
 import Searchbar from '@/components/Navbar/Searchbar';
 import SelectBox from '@/components/SelectBox/SelectBox';
-import WarehouseTest from '@/components/Tables/Warehouse/__test__/WarehouseTest';
 import { Button } from '@/components/Button/Button';
 import Modal from '@/components/Modal/Modal';
 import WarehouseForm from '@/components/Tables/Warehouse/__test__/WarehouseForm';
+import WarehouseTable from '@/components/Tables/Warehouse/__test__/WarehouseTable.test';
 
-interface WarehouseProps {
+interface Warehouse {
 	warehouseID: string;
 	warehouseName: string;
 	warehouseLocation: string;
@@ -15,19 +15,41 @@ interface WarehouseProps {
 
 const Warehouse = () => {
 	const selectBoxOptions = ['Transaction', 'Transfer'];
-	const [warehouses, setWarehouses] = useState<WarehouseProps[]>([]);
-
-	const handleAddWarehouse = (newWarehouse: WarehouseProps) => {
-		setWarehouses([...warehouses, newWarehouse]);
-		setIsModalOpen(false);
-	};
 
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const openModal = () => {
+	const [warehouses, setWarehouses] = useState<Warehouse[]>([]);
+	const [editWarehouse, setEditWarehouse] = useState<Warehouse | null>(null);
+
+	const handleEdit = (warehouseID: string) => {
+		const warehouseToEdit = warehouses.find(
+			w => w.warehouseID === warehouseID,
+		);
+		if (warehouseToEdit) {
+			setEditWarehouse(warehouseToEdit);
+		}
 		setIsModalOpen(true);
 	};
-	const closeModal = () => {
-		setIsModalOpen(false);
+
+	const handleDelete = (warehouseID: string) => {
+		setWarehouses(prevWarehouses =>
+			prevWarehouses.filter(w => w.warehouseID !== warehouseID),
+		);
+	};
+	const handleSave = (newWarehouse: Warehouse) => {
+		if (editWarehouse) {
+			// Update existing warehouse
+			setWarehouses(prevWarehouses =>
+				prevWarehouses.map(w =>
+					w.warehouseID === editWarehouse.warehouseID ? newWarehouse : w,
+				),
+			);
+			setEditWarehouse(null);
+			setIsModalOpen(false);
+		} else {
+			// Add new warehouse
+			setWarehouses(prevWarehouses => [...prevWarehouses, newWarehouse]);
+			setIsModalOpen(false);
+		}
 	};
 
 	return (
@@ -41,8 +63,8 @@ const Warehouse = () => {
 					title="Add Warehouse"
 					color="green"
 					textColor="white"
-					cn="w-full max-w-[150px] self-center "
-					onClick={openModal}
+					cn="w-full max-w-[150px] self-center"
+					onClick={() => setIsModalOpen(true)}
 				/>
 				<div className="selectbox-container flex flex-row gap-2 rounded border border-black/10 bg-primary-white p-3 ">
 					<SelectBox
@@ -53,11 +75,15 @@ const Warehouse = () => {
 				</div>
 			</div>
 			<div className="warehouse-table-container h-fit max-h-[75vh] overflow-y-auto">
-				<WarehouseTest />
+				<WarehouseTable
+					warehouses={warehouses}
+					onEdit={handleEdit}
+					onDelete={handleDelete}
+				/>
+				<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+					<WarehouseForm warehouse={editWarehouse} onSave={handleSave} />
+				</Modal>
 			</div>
-			<Modal onClose={closeModal} isOpen={isModalOpen}>
-				<WarehouseForm onSave={handleAddWarehouse} />
-			</Modal>
 		</MainLayout>
 	);
 };
