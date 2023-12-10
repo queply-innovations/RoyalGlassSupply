@@ -3,7 +3,7 @@ import React from 'react';
 interface InputboxProps {
 	label?: string;
 	value?: string;
-	placeholder: string;
+	placeholder?: string;
 }
 
 export const Inputbox: React.FC<InputboxProps> = ({

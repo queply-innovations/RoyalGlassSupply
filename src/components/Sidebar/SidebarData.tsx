@@ -89,6 +89,11 @@ export const SidebarData = [
 		icon: <VscGraph className="text-2xl" />,
 		link: '/reports',
 	},
+	{
+		title: 'Warehouse',
+		icon: <VscGraph className="text-2xl" />,
+		link: '/warehouse',
+	},
 ];
 
 export default SidebarData;
