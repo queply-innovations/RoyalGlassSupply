@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import MainLayout from '@/layouts/MainLayout';
 import Searchbar from '@/components/Navbar/Searchbar';
-import SelectBox from '@/components/SelectBox/SelectBox';
 import { Button } from '@/components/Button/Button';
 import Modal from '@/components/Modal/Modal';
 import WarehouseForm from '@/components/Tables/Warehouse/__test__/WarehouseForm';
@@ -14,8 +13,6 @@ interface Warehouse {
 }
 
 const Warehouse = () => {
-	const selectBoxOptions = ['Transaction', 'Transfer'];
-
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [warehouses, setWarehouses] = useState<Warehouse[]>([]);
 	const [editWarehouse, setEditWarehouse] = useState<Warehouse | null>(null);
@@ -26,8 +23,8 @@ const Warehouse = () => {
 		);
 		if (warehouseToEdit) {
 			setEditWarehouse(warehouseToEdit);
+			setIsModalOpen(true);
 		}
-		setIsModalOpen(true);
 	};
 
 	const handleDelete = (warehouseID: string) => {
@@ -37,7 +34,6 @@ const Warehouse = () => {
 	};
 	const handleSave = (newWarehouse: Warehouse) => {
 		if (editWarehouse) {
-			// Update existing warehouse
 			setWarehouses(prevWarehouses =>
 				prevWarehouses.map(w =>
 					w.warehouseID === editWarehouse.warehouseID ? newWarehouse : w,
@@ -46,10 +42,18 @@ const Warehouse = () => {
 			setEditWarehouse(null);
 			setIsModalOpen(false);
 		} else {
-			// Add new warehouse
 			setWarehouses(prevWarehouses => [...prevWarehouses, newWarehouse]);
 			setIsModalOpen(false);
 		}
+	};
+
+	const resetFormValues = () => {
+		setEditWarehouse({
+			warehouseID: '',
+			warehouseName: '',
+			warehouseLocation: '',
+		});
+		setIsModalOpen(false);
 	};
 
 	return (
@@ -66,13 +70,6 @@ const Warehouse = () => {
 					cn="w-full max-w-[150px] self-center"
 					onClick={() => setIsModalOpen(true)}
 				/>
-				<div className="selectbox-container flex flex-row gap-2 rounded border border-black/10 bg-primary-white p-3 ">
-					<SelectBox
-						cn="flex min-w-[10rem] rounded border border-black/10 bg-white p-2 font-semibold"
-						options={selectBoxOptions}
-						hasFrequency={false}
-					/>
-				</div>
 			</div>
 			<div className="warehouse-table-container h-fit max-h-[75vh] overflow-y-auto">
 				<WarehouseTable
@@ -80,8 +77,12 @@ const Warehouse = () => {
 					onEdit={handleEdit}
 					onDelete={handleDelete}
 				/>
-				<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-					<WarehouseForm warehouse={editWarehouse} onSave={handleSave} />
+				<Modal isOpen={isModalOpen} onClose={resetFormValues}>
+					<WarehouseForm
+						warehouse={editWarehouse}
+						onSave={handleSave}
+						warehouseTableData={warehouses}
+					/>
 				</Modal>
 			</div>
 		</MainLayout>
