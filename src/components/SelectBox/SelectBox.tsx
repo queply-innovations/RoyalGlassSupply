@@ -5,6 +5,7 @@ interface SelectBoxProps {
 	hasFrequency: boolean;
 	frequencyOptions?: string[];
 	cn?: string;
+	required?: boolean;
 }
 
 const SelectBox: React.FC<SelectBoxProps> = ({
@@ -12,6 +13,7 @@ const SelectBox: React.FC<SelectBoxProps> = ({
 	hasFrequency,
 	frequencyOptions,
 	cn,
+	required,
 }) => {
 	const [selectedValue, setSelectedValue] = useState<string | undefined>(
 		undefined,
@@ -43,6 +45,7 @@ const SelectBox: React.FC<SelectBoxProps> = ({
 					id="selectBox"
 					value={selectedValue}
 					onChange={handleOptionChange}
+					required={required}
 				>
 					<option value="" disabled selected hidden>
 						Sort By
