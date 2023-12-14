@@ -53,7 +53,9 @@ const Modal: React.FC<ModalProps> = ({
 							<Button icon={<IoCloseSharp />} onClick={onClose} />
 						</div>
 					</div>
-					<div className={`"modal-body space-y-2" ${cn}`}>{children}</div>
+					<div className={`modal-body space-y-2 ${cn || ''}`}>
+						{children}
+					</div>
 				</div>
 			</div>
 		</>
