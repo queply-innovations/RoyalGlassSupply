@@ -7,17 +7,23 @@ interface InputFieldProps {
 	name: string;
 	value: string;
 	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	disable?: boolean;
+	required?: boolean;
+	cn?: string;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
+	cn,
 	label,
 	type,
 	name,
 	value,
 	onChange,
+	disable,
+	required,
 }) => {
 	return (
-		<div className="inputbox-container flex flex-col gap-2">
+		<div className={`inputbox-container flex flex-col gap-2 ${cn || ''}`}>
 			<label className="inputbox-label font-Inter text-base font-semibold uppercase text-black">
 				{label}
 			</label>
@@ -27,6 +33,8 @@ const InputField: React.FC<InputFieldProps> = ({
 				name={name}
 				value={value}
 				onChange={onChange}
+				disabled={disable}
+				required={required}
 			/>
 		</div>
 	);
